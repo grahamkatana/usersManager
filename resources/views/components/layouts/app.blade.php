@@ -20,6 +20,30 @@
 </head>
 
 <body class="font-sans antialiased bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-orange-400 font-semibold text-lg">
+                        {{ config('app.name', 'Laravel') }}
+                    </span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-300">{{ auth()->user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            class="inline-flex items-center justify-center px-4 py-2 mt-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="min-h-screen">
         <main>
             {{ $slot }}
